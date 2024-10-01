@@ -1,0 +1,35 @@
+Application de gestion de compte bancaire en ligne : 
+
+- 2 types d'utilisateurs
+	1. Client pourra réaliser des opération de
+			- consultations -> a une date
+			- retrait -> a une date
+			- versement -> a une date
+			- virement -> a une date
+
+	2. Admin qui peut en plus de l'utilisateur
+			- créer un ou plusieurs clients
+			- et plusieurs compte pour celui ci
+
+- 2 types de comptes
+	1. Compte courant avec découvert autorisé ou non !
+	2. Compte épargne avec taux d'intérêt
+
+
+///////////////////////////////// Infos ///////////////////////////////////////////////////////
+
+
+1ere Itération
+
+1. Couche métier
+	- une interface qui réunis les méthodes et params du métier
+	- une classe qui impléments l'interface métier et définis le comportement des méthodes
+
+2. Entités (modèles)
+	- Elle ne contient pas de logique métier
+	- se limite à la gestion des données (mutateurs / affichage)
+
+
+//////////////////////////// NOTES ////////////////////////////////////////////////////////////
+
+penser a la javaDoc
