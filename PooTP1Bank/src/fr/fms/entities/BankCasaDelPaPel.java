@@ -1,25 +1,28 @@
 package fr.fms.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BankCasaDelPaPel {
 	
-	private int bankId;
-	private final String bankName = "Casa Del Papel";
-	// private List<BankAccount> bankAccountList;
+	private List<Customer> customers = new ArrayList<Customer>();
+	private String bankName;
 	
-	public BankCasaDelPaPel(int bankId) {
-		this.bankId = bankId;
+	public BankCasaDelPaPel(List<Customer> customers) {
+		this.setCustomers(customers);
+		this.bankName = "Casa Del Papel";
 	}
 	
-	public int getBankId() {
-		return bankId;
+	public String  getbankName() {
+		return bankName;
 	}
 
-	public void setBankId(int bankId) {
-		this.bankId = bankId;
+	public List<Customer> getCustomers() {
+		return customers;
 	}
-	
-	public String getBankName() {
-		return bankName;
+
+	public void setCustomers(List<Customer> customers) {
+		this.customers = customers;
 	}
 	
 

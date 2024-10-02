@@ -1,3 +1,13 @@
 package fr.fms.bankjob;
 
-public class BankJobImpl {}
+import fr.fms.entities.Customer;
+
+public class BankJobImpl {
+	
+	public void addCustomerToBank(int id, String lastname, String firstname, String email) {
+		Customer customer = new Customer(id, firstname, lastname, email, null);
+		
+	}
+	
+
+}
