@@ -24,7 +24,12 @@ Developping a banking application that allows an administrator to create "client
  <img alt="YOUR-ALT-TEXT" src="YOUR-DEFAULT-IMAGE">
 </picture>
 
-- Class Diagram
+- Class Diagram 
+ <picture>
+ <source media="(prefers-color-scheme: dark)" srcset="https://i.postimg.cc/ht4Pd4q0/image.png">
+ <source media="(prefers-color-scheme: light)" srcset="https://i.postimg.cc/ht4Pd4q0/image.png">
+ <img alt="YOUR-ALT-TEXT" src="YOUR-DEFAULT-IMAGE">
+</picture>
 
 - Sequence Diagram
 
