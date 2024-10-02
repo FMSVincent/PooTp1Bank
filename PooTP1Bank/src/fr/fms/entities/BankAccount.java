@@ -1,7 +1,7 @@
 package fr.fms.entities;
 import java.util.List;
 
-public class BankAccountOpening {
+public class BankAccount {
 
 //	attributes
 	private int bankAccountId;
@@ -11,7 +11,7 @@ public class BankAccountOpening {
 //	private List<Transaction>;
 	
 //	constructors
-	public BankAccountOpening(int bankAccountId, String accountType, double balance, int customerId) {
+	public BankAccount(int bankAccountId, String accountType, double balance, int customerId) {
 		
 		this.bankAccountId = bankAccountId;
 		this.accountType = accountType;
