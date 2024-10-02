@@ -1,24 +1,39 @@
 package fr.fms.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Customer {
-	private int customerId;
+
+	private long customerId;
 	private String firstname;
 	private String lastname;
 	private String email;
-	private List<BankAccount> listAccount;
+	private List<BankAccount> listAccount = new ArrayList<BankAccount>();
 
 
-	public Customer(int customerId, String firstname, String lastname, String email, List<BankAccount> listAccount) {
-		this.customerId = customerId;
+	public Customer(long customerId2, String firstname, String lastname, String email, List<BankAccount> listAccount) {
+		this.customerId = customerId2;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
-		this.listAccount = listAccount;
+		this.listAccount = (listAccount!= null) ? listAccount : new ArrayList<BankAccount>();
+	}
+	
+    public Customer(long customerId, String firstname, String lastname, String email) {
+        this.customerId = customerId;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.listAccount = new ArrayList<>();
+    }
+    
+	@Override
+	public String toString() {
+		return "Customer [firstname=" + firstname + ", lastname=" + lastname + ", email=" + email + " ID="+ customerId+ " listAccount="+ listAccount +"]";
 	}
 
-	public int getCustomerId() {
+	public long getCustomerId() {
 		return customerId;
 	}
 
@@ -50,8 +65,8 @@ public class Customer {
 		return listAccount;
 	}
 	
-	public void setListAccount(List<BankAccount> listAccount) {
-		this.listAccount = listAccount;
+	public void setListAccount( BankAccount bankAccount) {
+		this.listAccount.add(bankAccount);
 	}
 	
 }

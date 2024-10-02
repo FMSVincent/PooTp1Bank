@@ -1,5 +1,7 @@
 package fr.fms.entities;
 
+import java.util.Date;
+
 public class BankAccount {
 
 	/* 1Créer l'identifiant de Robert Dupont
@@ -23,24 +25,32 @@ public class BankAccount {
 	
 	
 //	attributes
-	private int bankAccountId;
+	private long bankAccountId;
 	private String accountType;
 	private double balance;
-	private int customerId;
+	private long customerId;
+	private Date date;
 //	private List<Transaction>;
 	
 //	constructors
-	public BankAccount(int bankAccountId, String accountType, double balance, int customerId) {
+	public BankAccount(long bankAccountId, String accountType, double balance, long customerId2, Date date) {
 		
 		this.bankAccountId = bankAccountId;
 		this.accountType = accountType;
 		this.balance = balance;
-		this.customerId = customerId;
+		this.customerId = customerId2;
+		this.date = date;
 		
+	}
+	
+	@Override
+	public String toString() {
+		return "BankAccount [bankAccountId=" + bankAccountId + ", accountType=" + accountType + ", balance=" + balance
+				+ ", customerId=" + customerId + ", date=" + date + "]";
 	}
 
 //	accessors
-	public int getBankAccountId() {
+	public long getBankAccountId() {
 		return bankAccountId;
 	}
 
@@ -64,7 +74,7 @@ public class BankAccount {
 		this.balance = balance;
 	}
 
-	public int getCustomerId() {
+	public long getCustomerId() {
 		return customerId;
 	}
 

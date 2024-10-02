@@ -5,24 +5,19 @@ import java.util.List;
 
 public class BankCasaDelPaPel {
 	
-	private List<Customer> customers = new ArrayList<Customer>();
-	private String bankName;
+	private static List<Customer> customers = new ArrayList<Customer>();
+	private static String bankName = "Casa Del Papel";
 	
-	public BankCasaDelPaPel(List<Customer> customers) {
-		this.setCustomers(customers);
-		this.bankName = "Casa Del Papel";
-	}
-	
-	public String  getbankName() {
+	public static String  getbankName() {
 		return bankName;
 	}
 
-	public List<Customer> getCustomers() {
+	public static List<Customer> getCustomers() {
 		return customers;
 	}
 
-	public void setCustomers(List<Customer> customers) {
-		this.customers = customers;
+	public static void setCustomers(Customer customer) {
+		BankCasaDelPaPel.customers.add(customer);
 	}
 	
 
