@@ -1,5 +1,4 @@
 package fr.fms.entities;
-import java.util.List;
 
 public class BankAccount {
 
