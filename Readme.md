@@ -13,9 +13,7 @@ Developping a banking application that allows an administrator to create "client
 
 
 
-## Documentation
-
-[Documentation / Diagram]
+## Documentation / Diagram
 
 - Use case Diagram
 <picture>
