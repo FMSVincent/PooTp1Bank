@@ -1,7 +1,5 @@
 package fr.fms.entities;
 
-import java.util.List;
-
 public class BankCasaDelPaPel {
 	
 	private int bankId;
