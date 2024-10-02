@@ -7,7 +7,8 @@ public class Customer {
 	private String firstname;
 	private String lastname;
 	private String email;
-	//private List<BankAccount> listAccount;
+	private List<BankAccount> listAccount;
+	
 	public Customer(int customerId, String firstname, String lastname, String email) {
 		this.customerId = customerId;
 		this.firstname = firstname;
