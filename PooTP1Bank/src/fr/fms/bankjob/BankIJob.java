@@ -1,3 +1,3 @@
 package fr.fms.bankjob;
 
-public interface BankJob {}
+public interface BankIJob {}
