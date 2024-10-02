@@ -1,3 +1,3 @@
-package fms.fr.bankjob;
+package fr.fms.bankjob;
 
 public interface BankJob {}
