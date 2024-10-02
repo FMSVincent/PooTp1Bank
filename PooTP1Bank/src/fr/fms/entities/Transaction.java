@@ -52,9 +52,6 @@ public class Transaction {
 		System.out.println("Amount :" + amount );
 		System.out.println("Date :" + date );
 		System.out.println("Transaction Type :" + transactionType );
-	}
-
-	
-	
+	}	
 
 }
