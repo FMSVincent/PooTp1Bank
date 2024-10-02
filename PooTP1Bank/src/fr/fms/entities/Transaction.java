@@ -47,11 +47,5 @@ public class Transaction {
 		this.transactionType = transactionType;
 	}
 	
-	public void consult() {
-		System.out.println("Transaction Id :" + idTransaction );
-		System.out.println("Amount :" + amount );
-		System.out.println("Date :" + date );
-		System.out.println("Transaction Type :" + transactionType );
-	}	
 
 }
