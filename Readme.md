@@ -19,8 +19,8 @@ Developping a banking application that allows an administrator to create "client
 
 - Use case Diagram
 <picture>
- <source media="(prefers-color-scheme: dark)" srcset="https://fastly.picsum.photos/id/180/200/300.jpg?hmac=EC8Kweq0GgryGedfHPQFsFTXsZ8NgHaYU5ZnhoGkPLA">
- <source media="(prefers-color-scheme: light)" srcset="https://fastly.picsum.photos/id/180/200/300.jpg?hmac=EC8Kweq0GgryGedfHPQFsFTXsZ8NgHaYU5ZnhoGkPLA">
+ <source media="(prefers-color-scheme: dark)" srcset="https://postimg.cc/34qmTNv4">
+ <source media="(prefers-color-scheme: light)" srcset="https://postimg.cc/34qmTNv4">
  <img alt="YOUR-ALT-TEXT" src="YOUR-DEFAULT-IMAGE">
 </picture>
 
