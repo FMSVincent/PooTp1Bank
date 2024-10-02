@@ -19,8 +19,8 @@ Developping a banking application that allows an administrator to create "client
 
 - Use case Diagram
 <picture>
- <source media="(prefers-color-scheme: dark)" srcset="https://postimg.cc/34qmTNv4">
- <source media="(prefers-color-scheme: light)" srcset="https://postimg.cc/34qmTNv4">
+ <source media="(prefers-color-scheme: dark)" srcset="https://i.postimg.cc/rsVJ5tyJ/diagram-Bank.png">
+ <source media="(prefers-color-scheme: light)" srcset="https://i.postimg.cc/rsVJ5tyJ/diagram-Bank.png">
  <img alt="YOUR-ALT-TEXT" src="YOUR-DEFAULT-IMAGE">
 </picture>
 
