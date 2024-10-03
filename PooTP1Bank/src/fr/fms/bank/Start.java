@@ -87,10 +87,13 @@ public class Start {
 				System.out.println("Le type de transaction : 1 - versement, 2 - retrait, 3 - transfert");
 				int type = sc.nextInt();
 				switch (type) {
-				case 1:
-					System.out.println("Saisir le montant à ajouter au solde du compte");
-					int amount = sc.nextInt();
-					break;
+					case 1:
+						System.out.println("Saisir l ID du compte a créditer");
+						int accountId = sc.nextInt();
+						System.out.println("Saisir le montant à ajouter au solde du compte");
+						int amount = sc.nextInt();
+						job.makeDeposit(accountId, amount);
+						break;
 				}
 			case 4:
 				job.getListBankAccount();

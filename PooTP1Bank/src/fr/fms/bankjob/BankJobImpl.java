@@ -20,6 +20,14 @@ public class BankJobImpl implements BankIJob {
 		    customer.setListAccount(bankAccount);
 	}
 	
+	public void makeDeposit(int bankAccountId, int amount) {
+		// verifie si le compte existe
+		// si il existe je le credite
+		// je renvoi un message success
+		// si il existe pas
+		// message pas de compte
+	}
+	
 	public Customer findCustomer(long customerId) {
 		List<Customer> customers = BankCasaDelPaPel.getCustomers();
 		for (Customer customer : customers) {
