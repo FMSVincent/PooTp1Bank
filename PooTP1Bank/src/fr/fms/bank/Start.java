@@ -80,10 +80,6 @@ public class Start {
 			}
 			
 			case 3: 
-				System.out.println("Entrer ID client");
-				long customerId = sc.nextLong();
-				System.out.println("Entre le compte courant ou le compte épargne");
-				long bankAccountId = sc.nextLong();
 				System.out.println("Le type de transaction : 1 - versement, 2 - retrait, 3 - transfert");
 				int type = sc.nextInt();
 				switch (type) {
@@ -92,7 +88,8 @@ public class Start {
 						int accountId = sc.nextInt();
 						System.out.println("Saisir le montant à ajouter au solde du compte");
 						int amount = sc.nextInt();
-						job.makeDeposit(accountId, amount);
+						String isSuccess = (job.makeDeposit(accountId, amount)) ? "montant de:" + amount + " € ajouté avec succès" : "action échouée";
+						System.out.println(isSuccess);
 						break;
 				}
 			case 4:

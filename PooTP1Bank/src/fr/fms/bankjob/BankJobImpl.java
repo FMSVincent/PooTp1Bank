@@ -1,5 +1,6 @@
 package fr.fms.bankjob;
 
+import java.util.Iterator;
 import java.util.List;
 
 import fr.fms.entities.BankAccount;
@@ -20,12 +21,18 @@ public class BankJobImpl implements BankIJob {
 		    customer.setListAccount(bankAccount);
 	}
 	
-	public void makeDeposit(int bankAccountId, int amount) {
+	public boolean makeDeposit(int bankAccountId, int amount) {
 		// verifie si le compte existe
-		// si il existe je le credite
-		// je renvoi un message success
-		// si il existe pas
-		// message pas de compte
+		List<Customer> customers = BankCasaDelPaPel.getCustomers();
+		for(Customer customer : customers) {
+			for(BankAccount account : customer.getListAccount()) {
+				if(account.getBankAccountId() == bankAccountId) {
+					account.setBalance(account.getBalance() + amount);
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 	
 	public Customer findCustomer(long customerId) {

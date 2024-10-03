@@ -8,5 +8,5 @@ public interface BankIJob {
 	void addAccountToCustomer( Customer customer, BankAccount bankAccount);
 	Customer findCustomer(long customerId);
 	void getListBankAccount();
-	void makeDeposit(int amount, int bankAccountId);
+	boolean makeDeposit(int amount, int bankAccountId);
 }
