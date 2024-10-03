@@ -9,17 +9,18 @@ import fr.fms.utils.Utils;
 public class Start {
 
 	public static void main(String[] args) {
+		
 		Scanner sc = new Scanner(System.in);
 		BankJobImpl job = new BankJobImpl();
 		Utils.displayTitle();
-		String displayMenu = "o"; 
+		int choice = 0; 
 		
-		while (displayMenu.equalsIgnoreCase("o")) {
+		while (choice != 6) {
 			Utils.displayMenu();
-			int inputUserOption = sc.nextInt();
+			choice = sc.nextInt();
 			sc.nextLine();
 			
-			switch (inputUserOption) {
+			switch (choice) {
 			
 			case 1: {
 				System.out.println("Entrer prenom client");
@@ -29,8 +30,6 @@ public class Start {
 				System.out.println("Entrer email client");
 				String email = sc.nextLine();
 				job.addCustomerToBank(lastname, firstname, email);
-				System.out.println("Souhaitez-vous revenir au menu ? O ou N");
-				displayMenu = sc.nextLine();
 				break;
 			}
 			
@@ -41,8 +40,6 @@ public class Start {
 				Customer customer = job.findCustomer(customerId);
 				if (customer == null) {
 					System.err.println("n existe pas");
-			        System.out.println("Souhaitez-vous revenir au menu ? O ou N");
-			        displayMenu = sc.nextLine();
 			        break;
 				}
 				System.out.println("Entrer un solde");
@@ -54,13 +51,26 @@ public class Start {
 				else if (inputTypeAccount == 2) accountType = "savingAccount";
 				job.addAccountToCustomer(accountType, balance, customer);
 				sc.nextLine();
-				System.out.println("Souhaitez-vous revenir au menu ? O ou N");
-				displayMenu = sc.nextLine();
 				break;
 			}
-			
+			case 3: 
+				System.out.println("Entrer ID client");
+				long customerId = sc.nextLong();
+				System.out.println("Entre le compte courant ou le compte épargne");
+				long bankAccountId = sc.nextLong();
+				System.out.println("Le type de transaction : 1 - versement, 2 - retrait, 3 - transfert");
+				int type = sc.nextInt();
+				switch (type) {
+				case 1:
+					System.out.println("Saisir le montant à ajouter au solde du compte");
+					int amount = sc.nextInt();
+					break;
+				}
+			case 6:
+				System.out.println("Aurevoir");
+				break;
 			default:
-				throw new IllegalArgumentException("Unexpected value: "+ inputUserOption);
+				System.out.println("Choix non valide");
 			}
 		}
 		sc.close();

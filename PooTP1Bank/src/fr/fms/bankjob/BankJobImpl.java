@@ -25,6 +25,7 @@ public class BankJobImpl implements BankIJob {
 		    long bankAccountId = (long) (Math.random() * 100000)+1;
 		    BankAccount bankAccountCustomer = new BankAccount(bankAccountId, accountType, balance, customer.getCustomerId(), toDay);
 		    customer.setListAccount(bankAccountCustomer);
+		    System.out.println(customer.getListAccount());
 	}
 	
 	public Customer findCustomer(long customerId) {
