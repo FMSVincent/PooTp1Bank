@@ -2,7 +2,7 @@ package fr.fms.utils;
 
 public class Utils {
 	// properties
-	static String[] menuMain = {"1 - Creer clients", "2 - Creer un compte client"};
+	static String[] menuMain = {"1 - Creer clients", "2 - Creer un compte client", "3 - Afficher la liste des comtpes"};
 
 	// methodes
 	public static void displayMenu() {

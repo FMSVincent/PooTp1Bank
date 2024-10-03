@@ -15,24 +15,31 @@ public class BankJobImpl implements BankIJob {
 		Customer customer = new Customer(customerId, firstname, lastname, email, null);
 		BankCasaDelPaPel.setCustomers(customer);
 		System.out.println(BankCasaDelPaPel.getCustomers());
-
 	}
 	
-	public void addAccountToCustomer(String accountType, double balance, Customer customer) {
+	public void addAccountToCustomer(String accountType, double balance, Customer customer, double overDraft) {
 			Date toDay = new Date();
 		    String formater = new SimpleDateFormat("dd-MM-yy").format(toDay);
-		    System.out.println("date : "+ formater);
+		    if(accountType.equalsIgnoreCase("savingAccount")) overDraft = 5.5;
 		    long bankAccountId = (long) (Math.random() * 100000)+1;
-		    BankAccount bankAccountCustomer = new BankAccount(bankAccountId, accountType, balance, customer.getCustomerId(), toDay);
+		    BankAccount bankAccountCustomer = new BankAccount(bankAccountId, accountType, balance, customer.getCustomerId(), formater, overDraft);
 		    customer.setListAccount(bankAccountCustomer);
 	}
 	
 	public Customer findCustomer(long customerId) {
 		List<Customer> customers = BankCasaDelPaPel.getCustomers();
-		Customer isCustomer = null;
 		for (Customer customer : customers) {
-			if (customer.getCustomerId() == customerId) isCustomer = customer;
+			if (customer.getCustomerId() == customerId) return customer;
 		}
-		return isCustomer;
+		return null;
+	}
+	
+	public void getListBankAccount() {
+		for (Customer customer : BankCasaDelPaPel.getCustomers()) {
+			if(customer.getListAccount().size() > 0) {
+				System.out.println(customer.getListAccount());
+				System.out.println(customer);
+			}
+		}
 	}
 }

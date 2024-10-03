@@ -29,12 +29,14 @@ public class BankAccount {
 	private String accountType;
 	private double balance;
 	private long customerId;
-	private Date date;
+	private String date;
+	private double overDraft;
+	private double interest;
 //	private List<Transaction>;
 	
 //	constructors
-	public BankAccount(long bankAccountId, String accountType, double balance, long customerId2, Date date) {
-		
+	public BankAccount(long bankAccountId, String accountType, double balance, long customerId2, String date, double overDraft) {
+		this.overDraft = overDraft;
 		this.bankAccountId = bankAccountId;
 		this.accountType = accountType;
 		this.balance = balance;
@@ -45,8 +47,7 @@ public class BankAccount {
 	
 	@Override
 	public String toString() {
-		return "BankAccount [bankAccountId=" + bankAccountId + ", accountType=" + accountType + ", balance=" + balance
-				+ ", customerId=" + customerId + ", date=" + date + "]";
+		return accountType + "["+"accountId=" + bankAccountId +", creationDate=" + date + ", balance= "+ balance+ "overDraft= "+ overDraft+ "]";
 	}
 
 //	accessors

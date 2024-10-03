@@ -9,6 +9,7 @@ public class Customer {
 	private String firstname;
 	private String lastname;
 	private String email;
+
 	private List<BankAccount> listAccount = new ArrayList<BankAccount>();
 
 
@@ -30,7 +31,7 @@ public class Customer {
     
 	@Override
 	public String toString() {
-		return "Customer [firstname=" + firstname + ", lastname=" + lastname + ", email=" + email + " ID="+ customerId+ " listAccount="+ listAccount +"]";
+		return "Customer [firstname=" + firstname + ", lastname=" + lastname + ", email=" + email + " ID="+ customerId+ "]";
 	}
 
 	public long getCustomerId() {

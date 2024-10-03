@@ -49,11 +49,22 @@ public class Start {
 				double balance = sc.nextDouble();
 				System.out.println("Type de compte" +"\n"+ " 1 - compte courant"+"\n"+"2 - compte epargne");
 				String accountType = null;
-				int inputTypeAccount = sc.nextInt();			
-				if (inputTypeAccount == 1 ) accountType = "currentAccount";
+				int inputTypeAccount = sc.nextInt();
+				int overDraftOrInterest = 0;
+				if (inputTypeAccount == 1 ) {
+					System.out.println("Entrer découvert autorisé");
+					overDraftOrInterest = sc.nextInt();
+					accountType = "currentAccount";
+				} 
 				else if (inputTypeAccount == 2) accountType = "savingAccount";
-				job.addAccountToCustomer(accountType, balance, customer);
+				job.addAccountToCustomer(accountType, balance, customer, overDraftOrInterest);
 				sc.nextLine();
+				System.out.println("Souhaitez-vous revenir au menu ? O ou N");
+				displayMenu = sc.nextLine();
+				break;
+			}
+			case 3: {
+				job.getListBankAccount();
 				System.out.println("Souhaitez-vous revenir au menu ? O ou N");
 				displayMenu = sc.nextLine();
 				break;
