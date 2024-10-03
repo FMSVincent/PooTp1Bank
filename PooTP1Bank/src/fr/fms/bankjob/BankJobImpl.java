@@ -1,7 +1,5 @@
 package fr.fms.bankjob;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import fr.fms.entities.BankAccount;
@@ -17,13 +15,8 @@ public class BankJobImpl implements BankIJob {
 		System.out.println(BankCasaDelPaPel.getCustomers());
 	}
 	
-	public void addAccountToCustomer(String accountType, double balance, Customer customer, double overDraft) {
-			Date toDay = new Date();
-		    String formater = new SimpleDateFormat("dd-MM-yy").format(toDay);
-		    if(accountType.equalsIgnoreCase("savingAccount")) overDraft = 5.5;
-		    long bankAccountId = (long) (Math.random() * 100000)+1;
-		    BankAccount bankAccountCustomer = new BankAccount(bankAccountId, accountType, balance, customer.getCustomerId(), formater, overDraft);
-		    customer.setListAccount(bankAccountCustomer);
+	public void addAccountToCustomer(Customer customer, BankAccount bankAccount) {
+		    customer.setListAccount(bankAccount);
 	}
 	
 	public Customer findCustomer(long customerId) {
