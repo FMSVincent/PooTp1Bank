@@ -83,7 +83,7 @@ public class Start {
 				displayMenu = sc.nextLine();
 				break;
 			}
-			case 3: {
+			case 4: {
 				job.getListBankAccount();
 				System.out.println("Souhaitez-vous revenir au menu ? O ou N");
 				displayMenu = sc.nextLine();
