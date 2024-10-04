@@ -1,5 +1,8 @@
 package fr.fms.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BankAccount {
 
     private long bankAccountId;
@@ -7,6 +10,16 @@ public class BankAccount {
     private double balance;
     private long customerId;
     private String date;
+    protected List<Transaction> transactions = new ArrayList<Transaction>();
+
+    public BankAccount(long bankAccountId, String accountType, double balance, long customerId, String date, List<Transaction> transactions) {
+        this.bankAccountId = bankAccountId;
+        this.accountType = accountType;
+        this.balance = balance;
+        this.customerId = customerId;
+        this.date = date;
+        this.transactions = transactions;
+    }
 
     public BankAccount(long bankAccountId, String accountType, double balance, long customerId, String date) {
         this.bankAccountId = bankAccountId;
@@ -15,8 +28,16 @@ public class BankAccount {
         this.customerId = customerId;
         this.date = date;
     }
+    
+    public List<Transaction> getTransactions() {
+		return transactions;
+	}
 
-    @Override
+	public void addTransaction(Transaction transaction) {
+		this.transactions.add(transaction);
+	}
+
+	@Override
     public String toString() {
         return accountType + "[" + "accountId=" + bankAccountId + ", creationDate=" + date + ", balance=" + balance + "]";
     }

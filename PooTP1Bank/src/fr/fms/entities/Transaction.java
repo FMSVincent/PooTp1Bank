@@ -6,9 +6,10 @@ public class Transaction {
 	private double amount;
 	private String date;
 	private String transactionType;
+	private int accountId;
 	
 	// Constructor
-	public Transaction(int idTransaction,double amount,String date,String transactionType) {
+	public Transaction(int idTransaction,double amount,String date,String transactionType, int accountId) {
 		this.idTransaction = idTransaction;
 		this.amount = amount;
 		this.date = date;

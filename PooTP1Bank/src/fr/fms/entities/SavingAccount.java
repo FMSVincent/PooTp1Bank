@@ -1,8 +1,15 @@
 package fr.fms.entities;
 
+import java.util.List;
+
 public class SavingAccount extends BankAccount {
     private double interestRate;
 
+    public SavingAccount(long bankAccountId, double balance, long customerId, String date, double interestRate, List<Transaction> transactions) {
+        super(bankAccountId, "SavingAccount", balance, customerId, date, transactions);
+        this.interestRate = interestRate;
+    }
+    
     public SavingAccount(long bankAccountId, double balance, long customerId, String date, double interestRate) {
         super(bankAccountId, "SavingAccount", balance, customerId, date);
         this.interestRate = interestRate;

@@ -1,7 +1,10 @@
 package fr.fms.utils;
 
+import java.util.Scanner;
+
 public class Utils {
 	// properties
+	private static Scanner sc = new Scanner(System.in);
 	static String[] menuMain = {"1 - Creer clients", "2 - Creer un compte client", "3 - Faire une transaction(versement, retrait, transfert)","4 - Afficher la liste des comptes"};
 
 	// methodes
@@ -31,6 +34,42 @@ public class Utils {
 				+ "|  _ \\ / _` | '_ \\| |/ /\r\n"
 				+ "| |_) | (_| | | | |   < \r\n"
 				+ "|____/ \\__,_|_| |_|_|\\_\\");
+	}
+	
+	/**
+	 * Verif if input user is a int else err message and ask again
+	 * @param message
+	 * @param arr simple
+	 * @return int
+	 */
+	static public int verifIfInt(String message, int min, int max) {
+		while(!sc.hasNextInt()) {
+			System.out.println("Doit etre un int");
+			sc.next();
+		}
+		int inputUser = sc.nextInt();
+		while (inputUser < min || inputUser > max) {
+			System.err.println(message);
+			System.out.println("En attente d'une entrée valide");
+			while(!sc.hasNextInt()) sc.next();
+			inputUser = sc.nextInt();
+		}
+		return inputUser;
+	}
+	
+	/**
+	 * Control if inpuUser is empty if yes ask again
+	 * @param inputUser
+	 * @param sc scanner
+	 * @return String inputser
+	 */
+	public static String verifIsEmptyInput(String message) {
+		String inputUser = sc.nextLine();
+		while(inputUser.isEmpty()) {
+			System.err.println(message);
+			inputUser = sc.nextLine();
+		}
+		return inputUser;
 	}
 	
 }
