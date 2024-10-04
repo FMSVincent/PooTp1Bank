@@ -35,6 +35,49 @@ public class BankJobImpl implements BankIJob {
 		return false;
 	}
 	
+	public boolean makeTransfer(int amount, int fromAccountId, int toAccountId) {
+		List<Customer> customers = BankCasaDelPaPel.getCustomers();
+		
+		// trouver le compte à débiter et le compte à créditer
+		BankAccount fromAccount = null;
+		BankAccount toAccount = null;
+		
+		for (Customer customer : customers) {
+			for (BankAccount account : customer.getListAccount()) {
+				if(account.getBankAccountId() == fromAccountId) {
+					fromAccount = account;
+				}
+			}
+		}
+		
+		for (Customer customer : customers) {
+			for (BankAccount account : customer.getListAccount()) {
+				if(account.getBankAccountId() == toAccountId) {
+					toAccount = account;
+				}
+			}
+		}
+		
+		if(fromAccount == null || toAccount == null) {
+			System.err.println("Un ou les deux comptes n'existent pas.");
+			return false;
+		}
+		// Vérifier si le compte à débiter a suffisament de fonds
+		if(fromAccount.getBalance() >= amount) {
+			
+			fromAccount.setBalance(fromAccount.getBalance() - amount);
+			
+			toAccount.setBalance(toAccount.getBalance() + amount);
+			
+			return true;
+		}
+		else {
+			System.err.println("Fonds insuffisants sur le compte à débiter");
+			return false;
+		}
+		
+	}
+	
 	public Customer findCustomer(long customerId) {
 		List<Customer> customers = BankCasaDelPaPel.getCustomers();
 		for (Customer customer : customers) {

@@ -91,6 +91,16 @@ public class Start {
 						String isSuccess = (job.makeDeposit(accountId, amount)) ? "montant de:" + amount + " € ajouté avec succès" : "action échouée";
 						System.out.println(isSuccess);
 						break;
+					case 3:
+						System.out.println("Saisir l ID du compte à débiter");
+						int fromAccountId = sc.nextInt();
+						System.out.println("Saisir l ID du compte à créditer");
+						int toAccountId = sc.nextInt();
+						System.out.println("Saisir le montant (€)");
+						int amount3 = sc.nextInt();
+						String isSuccess3 = job.makeTransfer(amount3, fromAccountId, toAccountId) ? "Virement de " + amount3 + " € effectué avec succès de " + fromAccountId + " vers " + toAccountId : "action échouée";
+						System.out.println(isSuccess3);
+						break;
 				}
 			case 4:
 				job.getListBankAccount();
