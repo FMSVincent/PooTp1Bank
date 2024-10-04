@@ -78,20 +78,40 @@ public class Start {
 
 				break;
 			}
-			
+
 			case 3: 
 				System.out.println("Le type de transaction : 1 - versement, 2 - retrait, 3 - transfert");
 				int type = sc.nextInt();
 				switch (type) {
 					case 1:
-						System.out.println("Saisir l ID du compte a créditer");
+						System.out.println("Saisir l'ID du compte a créditer");
 						int accountId = sc.nextInt();
 						System.out.println("Saisir le montant à ajouter au solde du compte");
 						int amount = sc.nextInt();
-						String isSuccess = (job.makeDeposit(accountId, amount)) ? "montant de:" + amount + " € ajouté avec succès" : "action échouée";
+						String isSuccess = (job.makeDeposit(accountId, amount)) ? "Le versement de " + amount + " € a été effectué avec succès sur le compte ID:" + accountId : "action échouée";
 						System.out.println(isSuccess);
 						break;
-				}
+					case 2:
+						System.out.println("Saisir l'ID du compte a débiter");
+						int accountId2 = sc.nextInt();
+						System.out.println("Saisir le montant à retirer au solde du compte");
+						int amountWithdrawal = sc.nextInt();
+						String withdrawalIsSuccess = job.makeWithdrawal(accountId2, amountWithdrawal) ? "montant de:" + amountWithdrawal + " € retiré avec succès" : "Vous ne pouvez pas retirer ce montant!";
+						System.out.println(withdrawalIsSuccess);
+						break;
+						
+					case 3:
+						
+						System.out.println("Saisir l ID du compte à débiter");
+						int fromAccountId = sc.nextInt();
+						System.out.println("Saisir l ID du compte à créditer");
+						int toAccountId = sc.nextInt();
+						System.out.println("Saisir le montant (€)");
+						int amount3 = sc.nextInt();
+						String isSuccess3 = job.makeTransfer(amount3, fromAccountId, toAccountId) ? "Virement de " + amount3 + " € effectué avec succès de " + fromAccountId + " vers " + toAccountId : "action échouée";
+						System.out.println(isSuccess3);
+						break;
+				} break;
 			case 4:
 				job.getListBankAccount();
 				break;

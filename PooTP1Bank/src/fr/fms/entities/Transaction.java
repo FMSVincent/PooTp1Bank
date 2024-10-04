@@ -51,7 +51,7 @@ public class Transaction {
 	@Override
 	public String toString() {
 		return "Transaction [idTransaction=" + idTransaction + ", amount=" + amount + ", date=" + date
-				+ ", transactionType=" + transactionType + "]";
+				+ ", transactionType=" + transactionType + "] \n";
 	}
 
 }
