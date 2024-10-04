@@ -111,7 +111,7 @@ public class Start {
 						String isSuccess3 = job.makeTransfer(amount3, fromAccountId, toAccountId) ? "Virement de " + amount3 + " € effectué avec succès de " + fromAccountId + " vers " + toAccountId : "action échouée";
 						System.out.println(isSuccess3);
 						break;
-				}
+				} break;
 			case 4:
 				job.getListBankAccount();
 				break;
