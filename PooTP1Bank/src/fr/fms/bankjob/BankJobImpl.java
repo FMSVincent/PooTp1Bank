@@ -1,11 +1,14 @@
 package fr.fms.bankjob;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import fr.fms.entities.BankAccount;
 import fr.fms.entities.BankCasaDelPaPel;
 import fr.fms.entities.CurrentAccount;
 import fr.fms.entities.SavingAccount;
+import fr.fms.entities.Transaction;
 import fr.fms.entities.Customer;
 
 public class BankJobImpl implements BankIJob {
@@ -17,12 +20,25 @@ public class BankJobImpl implements BankIJob {
 		System.out.println(BankCasaDelPaPel.getCustomers());
 	}
 	
+	public void getListTransaction() {
+		if(BankCasaDelPaPel.getCustomers().size() < 1) {
+			System.out.println("pas de client");
+			return;
+		} 
+		for (Customer customer : BankCasaDelPaPel.getCustomers()) {
+			if(customer.getListAccount().size() > 0) {
+				for (BankAccount account : customer.getListAccount()) {
+					System.out.println(account.getTransactions());
+				}
+			}
+		}
+	};
 
 	public void addAccountToCustomer(Customer customer, BankAccount bankAccount) {
 		    customer.setListAccount(bankAccount);
 	}
 	
-	public boolean makeDeposit(int bankAccountId, int amount) {
+	public boolean makeDeposit(long bankAccountId, double amount) {
 		if (amount <= 0) {
 			System.out.println("Le montant doit être supérieur à 0");
 			return false;
@@ -33,6 +49,13 @@ public class BankJobImpl implements BankIJob {
 				if(account.getBankAccountId() == bankAccountId) {
 					account.setBalance(account.getBalance() + amount);
 					System.out.println("Le nouveau solde est : " + account.getBalance() + "€");
+					Date today = new Date();
+
+					String formattedDate = new SimpleDateFormat("dd-MM-yyyy").format(today);
+					long transactionId = (long) (Math.random() * 100000)+1;
+
+					Transaction transaction = new Transaction(transactionId, amount, formattedDate, "Versement", account.getBankAccountId());
+					account.addTransaction(transaction);
 					return true;
 				}
 			}

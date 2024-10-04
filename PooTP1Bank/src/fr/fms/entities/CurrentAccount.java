@@ -19,6 +19,10 @@ public class CurrentAccount extends BankAccount {
     public String toString() {
         return super.toString() + ", Overdraft= " + overDraft + "\n";
     }
+    
+    public List<Transaction> getTransactions() {
+    	return transactions;
+    }
 
     public double getOverDraft() {
         return overDraft;

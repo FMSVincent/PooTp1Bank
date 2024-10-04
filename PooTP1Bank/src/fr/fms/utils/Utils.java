@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Utils {
 	// properties
 	private static Scanner sc = new Scanner(System.in);
-	static String[] menuMain = {"1 - Creer clients", "2 - Creer un compte client", "3 - Faire une transaction(versement, retrait, transfert)","4 - Afficher la liste des comptes"};
+	static String[] menuMain = {"1 - Creer clients", "2 - Creer un compte client", "3 - Faire une transaction(versement, retrait, transfert)","4 - Afficher la liste des comptes", "5 - Afficher la liste des transactions", "6 - Quitter"};
 
 	// methodes
 	public static void displayMenu() {
@@ -73,3 +73,16 @@ public class Utils {
 	}
 	
 }
+// algo transaction
+	// si ma transaction a reussi
+	// je l'ajoute dans dans ma liste de transactions
+	// 
+
+
+
+
+
+
+
+
+

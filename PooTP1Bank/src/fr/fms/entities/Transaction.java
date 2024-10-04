@@ -2,21 +2,22 @@ package fr.fms.entities;
 
 public class Transaction {
 	// Attributs
-	private int idTransaction;
+	private long idTransaction;
 	private double amount;
 	private String date;
 	private String transactionType;
-	private int accountId;
+	private long accountId;
 	
 	// Constructor
-	public Transaction(int idTransaction,double amount,String date,String transactionType, int accountId) {
+	public Transaction(long idTransaction,double amount,String date,String transactionType, long accountId) {
 		this.idTransaction = idTransaction;
 		this.amount = amount;
 		this.date = date;
 		this.transactionType = transactionType;
+		this.accountId = accountId;
 	}
 
-	public int getIdTransaction() {
+	public long getIdTransaction() {
 		return idTransaction;
 	}
 
@@ -51,7 +52,7 @@ public class Transaction {
 	@Override
 	public String toString() {
 		return "Transaction [idTransaction=" + idTransaction + ", amount=" + amount + ", date=" + date
-				+ ", transactionType=" + transactionType + "] \n";
+				+ ", transactionType=" + transactionType + ", accountId="+accountId+ "] \n";
 	}
 
 }

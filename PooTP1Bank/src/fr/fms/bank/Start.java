@@ -85,9 +85,9 @@ public class Start {
 				switch (type) {
 					case 1:
 						System.out.println("Saisir l'ID du compte a créditer");
-						int accountId = sc.nextInt();
+						long accountId = sc.nextInt();
 						System.out.println("Saisir le montant à ajouter au solde du compte");
-						int amount = sc.nextInt();
+						double amount = sc.nextInt();
 						String isSuccess = (job.makeDeposit(accountId, amount)) ? "Le versement de " + amount + " € a été effectué avec succès sur le compte ID:" + accountId : "action échouée";
 						System.out.println(isSuccess);
 						break;
@@ -116,7 +116,7 @@ public class Start {
 				job.getListBankAccount();
 				break;
 			case 5:
-				// affiche liste transaction
+				job.getListTransaction();
 				break;
 			case 6:
 				System.out.println("Aurevoir");
