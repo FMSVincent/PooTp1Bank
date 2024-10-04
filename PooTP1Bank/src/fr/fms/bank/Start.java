@@ -78,7 +78,10 @@ public class Start {
 
 				break;
 			}
-			
+/*if (accountType instance of == currentAccount) 
+ * alors logique de compte courant
+ * sinon logique de comte E
+	*/		
 			case 3: 
 				System.out.println("Le type de transaction : 1 - versement, 2 - retrait, 3 - transfert");
 				int type = sc.nextInt();

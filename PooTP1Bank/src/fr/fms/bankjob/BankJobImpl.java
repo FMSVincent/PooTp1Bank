@@ -6,6 +6,7 @@ import java.util.List;
 import fr.fms.entities.BankAccount;
 import fr.fms.entities.BankCasaDelPaPel;
 import fr.fms.entities.CurrentAccount;
+import fr.fms.entities.SavingAccount;
 import fr.fms.entities.Customer;
 
 public class BankJobImpl implements BankIJob {
@@ -40,6 +41,7 @@ public class BankJobImpl implements BankIJob {
 		List<Customer> customers = BankCasaDelPaPel.getCustomers();
 		for(Customer customer : customers) {
 			for(BankAccount account : customer.getListAccount()) {
+				
 				if(account.getBankAccountId() == bankAccountId) {
 					if(account instanceof CurrentAccount) {
 						CurrentAccount currentAccount = (CurrentAccount)account;
@@ -47,13 +49,24 @@ public class BankJobImpl implements BankIJob {
 						if((currentAccount.getBalance()+currentAccount.getOverDraft()) >= amountWithdrawal) {
 							account.setBalance(account.getBalance() - amountWithdrawal);
 							return true;
-						} return false;
-					}
-					return true;
+						} else {
+					System.err.println("Ce compte n'existe pas!");
+				}
+						
+				} else if(account instanceof SavingAccount) {
+						SavingAccount savingAccount = (SavingAccount)account;
+						if(savingAccount.getBalance() >= amountWithdrawal) {
+							savingAccount.setBalance(savingAccount.getBalance() - amountWithdrawal);
+							return true;
 				}
 			}
-		} return false;
+				}
+			}
+	} return false;
 	}
+	
+
+//	}
 	
 	public Customer findCustomer(long customerId) {
 		List<Customer> customers = BankCasaDelPaPel.getCustomers();
