@@ -31,7 +31,7 @@ public class Customer {
     
 	@Override
 	public String toString() {
-		return "Customer [firstname=" + firstname + ", lastname=" + lastname + ", email=" + email + " ID="+ customerId+ "]";
+		return "Customer [firstname=" + firstname + ", lastname=" + lastname + ", email=" + email + " ID="+ customerId+ "] \n";
 	}
 
 	public long getCustomerId() {
