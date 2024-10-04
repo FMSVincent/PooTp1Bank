@@ -9,4 +9,5 @@ public interface BankIJob {
 	Customer findCustomer(long customerId);
 	void getListBankAccount();
 	boolean makeDeposit(int amount, int bankAccountId);
+	boolean makeWithdrawal(int amountWithdrawal, int bankAccountId);
 }

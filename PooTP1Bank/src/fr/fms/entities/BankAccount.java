@@ -2,7 +2,7 @@ package fr.fms.entities;
 
 public class BankAccount {
 
-    private long bankAccountId;
+    private long bankAccountId; 
     private String accountType;
     private double balance;
     private long customerId;
