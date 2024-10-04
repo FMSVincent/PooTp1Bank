@@ -41,3 +41,4 @@ Developping a banking application that allows an administrator to create "client
 - Packages
     - Entities
     - Job
+    - Utils
