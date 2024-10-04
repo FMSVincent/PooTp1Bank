@@ -10,4 +10,5 @@ public interface BankIJob {
 	void getListBankAccount();
 	boolean makeDeposit(int amount, int bankAccountId);
 	boolean makeTransfer(int amount, int fromAccountId, int toAccountId);
+	boolean makeWithdrawal(int amountWithdrawal, int bankAccountId);
 }

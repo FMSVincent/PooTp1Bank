@@ -1,10 +1,10 @@
 package fr.fms.bankjob;
 
-import java.util.Iterator;
 import java.util.List;
 
 import fr.fms.entities.BankAccount;
 import fr.fms.entities.BankCasaDelPaPel;
+import fr.fms.entities.CurrentAccount;
 import fr.fms.entities.Customer;
 
 public class BankJobImpl implements BankIJob {
@@ -22,7 +22,6 @@ public class BankJobImpl implements BankIJob {
 	}
 	
 	public boolean makeDeposit(int bankAccountId, int amount) {
-		// verifie si le compte existe
 		List<Customer> customers = BankCasaDelPaPel.getCustomers();
 		for(Customer customer : customers) {
 			for(BankAccount account : customer.getListAccount()) {
@@ -33,6 +32,26 @@ public class BankJobImpl implements BankIJob {
 			}
 		}
 		return false;
+	}
+	 
+
+	public boolean makeWithdrawal(int bankAccountId, int amountWithdrawal) {
+		List<Customer> customers = BankCasaDelPaPel.getCustomers();
+		for(Customer customer : customers) {
+			for(BankAccount account : customer.getListAccount()) {
+				if(account.getBankAccountId() == bankAccountId) {
+					if(account instanceof CurrentAccount) {
+						CurrentAccount currentAccount = (CurrentAccount)account;
+						currentAccount.getOverDraft();
+						if((currentAccount.getBalance()+currentAccount.getOverDraft()) >= amountWithdrawal) {
+							account.setBalance(account.getBalance() - amountWithdrawal);
+							return true;
+						} return false;
+					}
+					return true;
+				}
+			}
+		} return false;
 	}
 	
 	public boolean makeTransfer(int amount, int fromAccountId, int toAccountId) {
