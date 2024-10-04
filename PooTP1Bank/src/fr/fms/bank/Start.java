@@ -88,7 +88,7 @@ public class Start {
 						int accountId = sc.nextInt();
 						System.out.println("Saisir le montant à ajouter au solde du compte");
 						int amount = sc.nextInt();
-						String isSuccess = (job.makeDeposit(accountId, amount)) ? "montant de:" + amount + " € ajouté avec succès" : "action échouée";
+						String isSuccess = (job.makeDeposit(accountId, amount)) ? "Le versement de " + amount + " € a été effectué avec succès sur le compte ID:" + accountId : "action échouée";
 						System.out.println(isSuccess);
 						break;
 

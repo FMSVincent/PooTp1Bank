@@ -23,15 +23,21 @@ public class BankJobImpl implements BankIJob {
 	}
 	
 	public boolean makeDeposit(int bankAccountId, int amount) {
+		if (amount <= 0) {
+			System.out.println("Le montant doit être supérieur à 0");
+			return false;
+		}
 		List<Customer> customers = BankCasaDelPaPel.getCustomers();
 		for(Customer customer : customers) {
 			for(BankAccount account : customer.getListAccount()) {
 				if(account.getBankAccountId() == bankAccountId) {
 					account.setBalance(account.getBalance() + amount);
+					System.out.println("Le nouveau solde est : " + account.getBalance() + "€");
 					return true;
 				}
 			}
 		}
+		System.out.println("Compte non trouvé pour l'ID :" + bankAccountId);
 		return false;
 	}
 	 
