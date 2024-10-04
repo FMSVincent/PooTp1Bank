@@ -93,7 +93,10 @@ public class BankJobImpl implements BankIJob {
 			System.err.println("Un ou les deux comptes n'existent pas.");
 			return false;
 		}
-		if(fromAccount.getBalance() >= amount) {
+		if(fromAccount instanceof CurrentAccount) {
+			CurrentAccount fromCurrentAccount = (CurrentAccount)fromAccount;
+			fromCurrentAccount.getOverDraft();
+			if(fromAccount.getBalance() + fromCurrentAccount.getOverDraft() >= amount) {
 			
 			fromAccount.setBalance(fromAccount.getBalance()  - amount);
 			
@@ -105,6 +108,22 @@ public class BankJobImpl implements BankIJob {
 			System.err.println("Fonds insuffisants sur le compte à débiter");
 			return false;
 		}
+			
+		}else {
+			if(fromAccount.getBalance() >= amount) {
+				
+				fromAccount.setBalance(fromAccount.getBalance()  - amount);
+				
+				toAccount.setBalance(toAccount.getBalance() + amount);
+				
+				return true;
+			}
+			else {
+				System.err.println("Fonds insuffisants sur le compte à débiter");
+				return false;
+			}
+		}
+		
 	}
 	
 	public Customer findCustomer(long customerId) {

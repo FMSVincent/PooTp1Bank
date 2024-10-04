@@ -18,7 +18,7 @@ public class BankAccount {
 
     @Override
     public String toString() {
-        return accountType + "[" + "accountId=" + bankAccountId + ", creationDate=" + date + ", balance=" + balance + "] \n";
+        return accountType + "[" + "accountId=" + bankAccountId + ", creationDate=" + date + ", balance=" + balance + "]";
     }
 
     public long getBankAccountId() {

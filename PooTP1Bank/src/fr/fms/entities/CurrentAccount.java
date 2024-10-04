@@ -10,7 +10,7 @@ public class CurrentAccount extends BankAccount {
 
     @Override
     public String toString() {
-        return super.toString() + ", Overdraft= " + overDraft;
+        return super.toString() + ", Overdraft= " + overDraft + "\n";
     }
 
     public double getOverDraft() {
