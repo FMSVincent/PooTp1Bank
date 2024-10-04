@@ -49,13 +49,9 @@ public class BankJobImpl implements BankIJob {
 				if(account.getBankAccountId() == bankAccountId) {
 					account.setBalance(account.getBalance() + amount);
 					System.out.println("Le nouveau solde est : " + account.getBalance() + "€");
-					Date today = new Date();
 
-					String formattedDate = new SimpleDateFormat("dd-MM-yyyy").format(today);
-					long transactionId = (long) (Math.random() * 100000)+1;
-
-					Transaction transaction = new Transaction(transactionId, amount, formattedDate, "Versement", account.getBankAccountId());
-					account.addTransaction(transaction);
+					addTransaction(amount, "Versement", account);
+					
 					return true;
 				}
 			}
@@ -65,7 +61,7 @@ public class BankJobImpl implements BankIJob {
 	}
 	 
 
-	public boolean makeWithdrawal(int bankAccountId, int amountWithdrawal) {
+	public boolean makeWithdrawal(double amountWithdrawal, int bankAccountId) {
 		List<Customer> customers = BankCasaDelPaPel.getCustomers();
 		for(Customer customer : customers) {
 			for(BankAccount account : customer.getListAccount()) {
@@ -76,6 +72,11 @@ public class BankJobImpl implements BankIJob {
 						currentAccount.getOverDraft();
 						if((currentAccount.getBalance()+currentAccount.getOverDraft()) >= amountWithdrawal) {
 							account.setBalance(account.getBalance() - amountWithdrawal);
+							
+							addTransaction(amountWithdrawal, "retrait", account);
+							
+							
+							
 							return true;
 						} else {
 					System.err.println("Ce compte n'existe pas!");
@@ -129,7 +130,12 @@ public class BankJobImpl implements BankIJob {
 			
 			fromAccount.setBalance(fromAccount.getBalance()  - amount);
 			
+			addTransaction(amount, "virement envoyé", fromAccount);
+			
 			toAccount.setBalance(toAccount.getBalance() + amount);
+			
+			addTransaction(amount, "virement reçu", toAccount);
+			
 			
 			return true;
 		}
@@ -170,5 +176,16 @@ public class BankJobImpl implements BankIJob {
 				System.out.println(customer);
 			}
 		}
+	}
+	public void addTransaction(double amount,String transactionType,BankAccount account) {
+		Date today = new Date();
+
+		String formattedDate = new SimpleDateFormat("dd-MM-yyyy").format(today);
+		long transactionId = (long) (Math.random() * 100000)+1;
+
+		Transaction transaction = new Transaction(transactionId, amount, formattedDate, transactionType, account.getBankAccountId());
+		account.addTransaction(transaction);
+		
+
 	}
 }

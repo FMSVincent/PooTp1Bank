@@ -95,8 +95,8 @@ public class Start {
 						System.out.println("Saisir l'ID du compte a débiter");
 						int accountId2 = sc.nextInt();
 						System.out.println("Saisir le montant à retirer au solde du compte");
-						int amountWithdrawal = sc.nextInt();
-						String withdrawalIsSuccess = job.makeWithdrawal(accountId2, amountWithdrawal) ? "montant de:" + amountWithdrawal + " € retiré avec succès" : "Vous ne pouvez pas retirer ce montant!";
+						double amountWithdrawal = sc.nextDouble();
+						String withdrawalIsSuccess = job.makeWithdrawal(amountWithdrawal,accountId2) ? "montant de:" + amountWithdrawal + " € retiré avec succès" : "Vous ne pouvez pas retirer ce montant!";
 						System.out.println(withdrawalIsSuccess);
 						break;
 						
